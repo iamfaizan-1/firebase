@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Login & Signup</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+   
+</head>
+<body>
+    <div class="form-container">
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <div class="welcome-content">
+                <h2>Welcome Back!</h2>
+                <p>Sign in to access your personalized dashboard, manage your account, and connect with our services. If you're new here, create an account to get started.</p>
+                <div class="mt-4">
+                    <h4 class="mb-3">Why join us?</h4>
+                    <p><i class="fas fa-check-circle me-2"></i> Secure & encrypted data protection</p>
+                    <p><i class="fas fa-check-circle me-2"></i> Access from any device, anywhere</p>
+                    <p><i class="fas fa-check-circle me-2"></i> 24/7 customer support</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Form Section -->
+        <div class="form-section">
+            <!-- Login Form -->
+            <div class="form-card active" id="login-form">
+                <div class="form-header">
+                    <h3>Sign In</h3>
+                    <p>Enter your credentials to access your account</p>
+                </div>
+                
+                <!-- Alert for login errors -->
+                <div class="alert alert-danger" id="login-alert">
+                    <i class="fas fa-exclamation-circle me-2"></i><span id="login-alert-text"></span>
+                </div>
+                
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="loginEmail" class="form-label">Email address</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            <input type="email" class="form-control with-icon" id="loginEmail" placeholder="name@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            <input type="password" class="form-control with-icon" id="loginPassword" placeholder="Enter your password" required>
+                            <span class="input-group-text password-toggle" id="loginPasswordToggle">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3 form-check d-flex justify-content-between">
+                        <div>
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <a href="#" class="text-decoration-none">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-100 mb-3" id="loginBtn">
+                        <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                    </button>
+                    
+                    <div class="social-login">
+                        <div class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="social-btn google">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div class="social-btn twitter">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                    </div>
+                </form>
+                
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="#" id="show-signup">Sign up here</a></p>
+                </div>
+            </div>
+            
+            <!-- Signup Form -->
+            <div class="form-card" id="signup-form">
+                <div class="form-header">
+                    <h3>Create Account</h3>
+                    <p>Fill in your details to create a new account</p>
+                </div>
+                
+                <!-- Alert for signup errors/success -->
+                <div class="alert" id="signup-alert">
+                    <i class="fas fa-exclamation-circle me-2"></i><span id="signup-alert-text"></span>
+                </div>
+                
+                <form id="signupForm">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control with-icon" id="firstName" placeholder="John" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control with-icon" id="lastName" placeholder="Doe" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="signupEmail" class="form-label">Email address</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            <input type="email" class="form-control with-icon" id="signupEmail" placeholder="name@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="signupPassword" class="form-label">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            <input type="password" class="form-control with-icon" id="signupPassword" placeholder="Create a strong password" required>
+                            <span class="input-group-text password-toggle" id="signupPasswordToggle">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" id="password-strength-bar"></div>
+                        </div>
+                        <div class="password-strength" id="password-strength-text"></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            <input type="password" class="form-control with-icon" id="confirmPassword" placeholder="Re-enter your password" required>
+                        </div>
+                        <div class="invalid-feedback" id="confirm-password-feedback">
+                            Passwords do not match
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                        <label class="form-check-label terms" for="agreeTerms">
+                            I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> and <a href="#" class="text-decoration-none">Privacy Policy</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-100 mb-3" id="signupBtn">
+                        <i class="fas fa-user-plus me-2"></i>Create Account
+                    </button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>Already have an account? <a href="#" id="show-login">Sign in here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+  <script src="./auth.js" ></script>
+</body>
+</html>
